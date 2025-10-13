@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8p8t — True Anarchy Minecraft</title>
+<meta name="description" content="8p8t.org — true anarchy Minecraft server. No rules. Play: 8p8t.org">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AOTWMCORG/8p8t-Website/refs/heads/main/server-icon.png">
+
+<style>
+:root{
+  --bg:#0b0014;
+  --card:#0a0d1a;
+  --muted:#9aa4b2;
+  --accent:#22c55e;
+  --accent-2:#0ea5e9;
+  --radius:14px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box;}
+body{margin:0;padding:0;background:var(--bg);color:#e6eef8;font-family:inherit;line-height:1.45;}
+.wrap{max-width:1100px;margin:28px auto;padding:20px;}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.logo img{width:64px;height:64px;border-radius:12px;}
+.title{font-weight:800;font-size:20px;}
+.subtitle{color:var(--muted);font-size:13px;}
+nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-weight:700;}
+nav a:hover{color:var(--accent);}
+.hero{position:relative;border-radius:18px;overflow:hidden;padding:26px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0));display:grid;grid-template-columns:1fr 360px;gap:18px;box-shadow:0 14px 40px rgba(0,0,0,0.6);}
+.glitch-bg{pointer-events:none;position:absolute;inset:0;mix-blend-mode:screen;opacity:0.12;background-image:linear-gradient(90deg, rgba(34,197,94,0.06) 0 10%, transparent 10% 25%, rgba(14,165,233,0.03) 25% 30%, transparent 30% 100%),repeating-linear-gradient(180deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 4px);animation:glitchPan 6s linear infinite;filter:blur(6px);}
+@keyframes glitchPan{0%{transform:translateX(0) scale(1);}50%{transform:translateX(-6%) scale(1.02);}100%{transform:translateX(0) scale(1);}}
+.hero h1{margin:0;font-size:28px;letter-spacing:0.6px;}
+.muted{color:var(--muted);}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#0b0710;font-weight:800;text-decoration:none;cursor:pointer;border:0;box-shadow:0 8px 24px rgba(34,197,94,0.12);transition:all 0.25s ease-in-out, box-shadow 0.2s ease-in-out;position:relative;overflow:hidden;}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:700;box-shadow:none;}
+.btn::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,var(--accent),var(--accent-2),var(--accent),var(--accent-2));background-size:400% 400%;opacity:0;filter:blur(10px);transition:opacity 0.25s ease-in-out;z-index:-1;border-radius:inherit;animation:none;}
+.btn:hover::before{opacity:0.6;animation:pulseColors 1.5s linear infinite;}
+@keyframes pulseColors{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.btn:hover{transform:scale(1.08) rotate(-1deg);box-shadow:0 0 20px rgba(34,197,94,0.6),0 0 30px rgba(14,165,233,0.5),0 0 40px rgba(34,197,94,0.3);}
+.status{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:16px;border-radius:12px;min-height:140px;}
+.count{font-size:48px;font-weight:900;display:flex;align-items:center;gap:12px;}
+.count small{font-size:16px;color:var(--muted);font-weight:700;}
+.players-list{margin-top:12px;max-height:180px;overflow:auto;padding-right:8px;display:flex;flex-direction:column;gap:8px;}
+footer{margin-top:22px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:40px;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.card{background:var(--card);padding:14px;border-radius:12px;transition:transform 0.2s;}
+.card:hover{transform:scale(1.03);}
+a.card{text-decoration:none;color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<header>
+<div class="brand">
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/AOTWMCORG/8p8t-Website/refs/heads/main/server-icon.png" alt="8p8t Logo">
+  </div>
+  <div>
+    <div class="title">8p8t <span style="font-weight:700;color:var(--muted);font-size:13px">anarchy</span></div>
+    <div class="subtitle">Play: <strong>8p8t.org</strong> • Java • 1.21+</div>
+  </div>
+</div>
+<nav>
+<a href="#features">Features</a>
+<a href="#commands">Commands</a>
+<a href="#vote">Vote</a>
+<a href="#news">News</a>
+<a href="#owners">Owners</a>
+<a href="#copy-ip">Server IP</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<main class="hero">
+<div>
+  <h1>Welcome to <span style="color:var(--accent)">8p8t</span></h1>
+  <p class="muted">No rules. No resets. Pure anarchy. Build, grief, raid — you decide.</p>
+  <div class="actions">
+    <a class="btn" href="minecraft://8p8t.org:25565">Join 8p8t.org</a>
+    <a class="btn ghost" target="_blank" href="https://www.planetminecraft.com/server/8p8t-org-8-players-8-tools/">Vote</a>
+    <a class="btn ghost" target="_blank" href="https://discord.gg/HrMvRcm39v">Discord</a>
+  </div>
+</div>
+
+<aside class="status" id="statusCard">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+    <div style="font-weight:800">Server Status</div>
+    <div id="statusText" class="muted-xs">Checking…</div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <div>
+      <div class="count" aria-hidden="true">
+        <div id="playerCountAnimated">0</div>
+        <small id="playerMax" class="muted">/ ?</small>
+      </div>
+      <div class="muted-xs" style="margin-top:6px">Players online</div>
+    </div>
+  </div>
+  <div id="playersList" class="players-list muted-xs"><em>Recent players unavailable</em></div>
+  <div class="glitch-bg"></div>
+</aside>
+
+<!-- FEATURES -->
+<section id="features" style="margin-top:20px">
+<h2>What we are</h2>
+<div class="grid">
+  <div class="card"><h3>True Anarchy</h3><p class="muted">No rules, no staff interference, no resets. Expect chaos — this world persists.</p></div>
+  <div class="card"><h3>Persistent World</h3><p class="muted">No map wipes — whatever you do sticks with the server forever.</p></div>
+  <div class="card"><h3>Minimal Plugins</h3><p class="muted">Core commands: /home, /sethome, /vote, /info, /whisper, /msg, /nc, /tpa</p></div>
+</div>
+</section>
+
+<!-- COMMANDS -->
+<section id="commands" style="margin-top:20px">
+<h3>Commands</h3>
+<div class="card commands"><code>/home</code> <code>/sethome</code> <code>/vote</code> <code>/info</code> <code>/whisper</code> <code>/msg</code> <code>/nc</code> <code>/tpa</code></div>
+</section>
+
+<!-- VOTE -->
+<section id="vote" style="margin-top:20px">
+<div class="card" style="display:flex;justify-content:space-between;align-items:center">
+  <div><h3>Vote & Support</h3><p class="muted">Voting helps others find the server. Click below to vote on PlanetMinecraft.</p></div>
+  <div><a class="btn" href="https://www.planetminecraft.com/server/8p8t-org-8-players-8-tools/" target="_blank">Vote Now</a></div>
+</div>
+</section>
+
+<!-- NEWS -->
+<section id="news" style="margin-top:30px">
+<h2>Latest News</h2>
+<div class="grid">
+  <div class="card" style="cursor:pointer;" onclick="showNews('release')">
+    <h3>Website Released!</h3>
+    <p class="muted">The 8p8t.org website is now live and public. Click to read more!</p>
+    <small class="muted">Oct 12, 2025</small>
+  </div>
+  <div class="card">
+    <h3>PlanetMinecraft Voting Open</h3>
+    <p class="muted">Support the server by voting on PlanetMinecraft and help grow our player base.</p>
+    <small class="muted">Oct 10, 2025</small>
+  </div>
+  <div class="card">
+    <h3>Discord Launched</h3>
+    <p class="muted">Join our Discord to chat with owners and other anarchy enthusiasts.</p>
+    <small class="muted">Oct 8, 2025</small>
+  </div>
+</div>
+
+<!-- Hidden news content -->
+<div id="news-release" style="display:none;margin-top:20px;padding:14px;border-radius:12px;background:var(--card);">
+  <h3>Website is Live!</h3>
+  <p>The 8p8t.org website has officially launched and is now public! You can explore server features, check status, copy the IP, vote, and join the community. Welcome to true anarchy Minecraft!</p>
+  <button class="btn ghost" onclick="hideNews('release')">Close</button>
+</div>
+</section>
+
+<!-- OWNERS -->
+<section id="owners" style="margin-top:30px">
+<h2>Owners</h2>
+<div class="grid">
+  <div class="card" style="text-align:center;">
+    <img src="https://raw.githubusercontent.com/AOTWMCORG/8p8t-Website/refs/heads/main/e2f9f9946fc5a0d2585cdb4c44291f47.png" 
+         alt="job3g" style="width:100px;height:100px;border-radius:50%;margin-bottom:10px;">
+    <h3>job3g</h3>
+    <p class="muted">Co-owner of 8p8t and retired admin from AOTWMC.org. Knowledgeable on Java and Bedrock cheat clients.</p>
+  </div>
+  <div class="card" style="text-align:center;">
+    <img src="https://raw.githubusercontent.com/AOTWMCORG/8p8t-Website/refs/heads/main/0dad115d252f6bb2f27091974e755924.png" 
+         alt="Lplaysgames" style="width:100px;height:100px;border-radius:50%;margin-bottom:10px;">
+    <h3>Lplaysgames</h3>
+    <p class="muted">Lead owner and server manager of both 8p8t.org and AOTWMC.org.</p>
+  </div>
+</div>
+</section>
+
+<!-- COPY IP -->
+<section id="copy-ip" style="margin-top:30px">
+<div class="card" style="display:flex;justify-content:space-between;align-items:center;">
+  <div>
+    <h3>Server IP</h3>
+    <p class="muted">Click the button to copy the server IP</p>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <input type="text" id="serverIP" value="8p8t.org" readonly 
+           style="padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--card);color:#e6eef8;font-weight:700;">
+    <button class="btn ghost" id="copyBtn">Copy IP</button>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="margin-top:30px">
+<div>© <strong>8p8t</strong> — <span id="year"></span></div>
+<div class="muted">IP: <strong>8p8t.org</strong> • <span id="footerStatus">Checking…</span></div>
+</footer>
+</div>
+
+<script>
+// Server Status
+const el = {
+  statusText: document.getElementById('statusText'),
+  playerCountAnimated: document.getElementById('playerCountAnimated'),
+  playerMax: document.getElementById('playerMax'),
+  playersList: document.getElementById('playersList'),
+  footerStatus: document.getElementById('footerStatus')
+};
+let currentCount=0;
+
+function fetchStatus(){
+  fetch('https://api.mcstatus.io/v2/status/java/8p8t.org')
+  .then(res=>res.json())
+  .then(data=>{
+    const online=data.online;
+    el.statusText.textContent=online?'Online':'Offline';
+    const count = online ? data.players.online : 0;
+    el.playerMax.textContent='/' + (online ? data.players.max : '?');
+    animateCountTo(count);
+    el.playersList.innerHTML='<em>Recent players unavailable</em>';
+    el.footerStatus.textContent=online?'Online':'Offline';
+  })
+  .catch(()=>{
+    el.statusText.textContent='Offline'; 
+    el.playerMax.textContent='/?';
+    el.playersList.innerHTML='<em>Recent players unavailable</em>';
+    el.footerStatus.textContent='Offline';
+  });
+}
+
+function animateCountTo(target,duration=700){
+  const start=currentCount;
+  const diff=target-start;
+  const startTime=performance.now();
+  function step(ts){
+    const t=Math.min(1,(ts-startTime)/duration);
+    const eased=1-(1-t)*(1-t);
+    el.playerCountAnimated.textContent=Math.floor(start+diff*eased);
+    if(t<1) requestAnimationFrame(step);
+    else currentCount=target;
+  }
+  requestAnimationFrame(step);
+}
+
+fetchStatus();
+setInterval(fetchStatus,15000);
+document.getElementById('year').textContent=new Date().getFullYear();
+
+// Copy IP
+document.getElementById('copyBtn').addEventListener('click', ()=>{
+  const ipInput = document.getElementById('serverIP');
+  ipInput.select();
+  ipInput.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(ipInput.value).then(()=>{alert(`Copied server IP: ${ipInput.value}`);});
+});
+
+// Show/Hide News
+function showNews(id){
+  document.getElementById('news-' + id).style.display = 'block';
+  document.getElementById('news-' + id).scrollIntoView({behavior:'smooth'});
+}
+function hideNews(id){
+  document.getElementById('news-' + id).style.display = 'none';
+}
+</script>
+</body>
+</html>
